@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TahfizTahsin | Seleksi Calon Siswa</title>
+<style>
+:root{
+  --green:#087f5b;
+  --deep:#064e3b;
+  --mint:#e8f5ee;
+  --pale:#f5faf6;
+  --gold:#d9ad55;
+  --text:#18352c;
+  --muted:#6c8178;
+  --line:#dce9e1;
+  --white:#fff;
+  --shadow:0 12px 35px #174d3410
+}
+*{
+  box-sizing:border-box
+}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--text);
+  background:#f7faf8
+}
+button,input,select,textarea{
+  font:inherit
+}
+button{
+  cursor:pointer
+}
+.hidden{
+  display:none!important
+}
+.wrap{
+  max-width:1180px;
+  margin:auto;
+  padding:0 24px
+}
+header{
+  height:76px;
+  background:#ffffffeb;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:20;
+  backdrop-filter:blur(12px)
+}
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+  gap:24px
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:850;
+  color:var(--deep);
+  font-size:20px;
+  text-decoration:none
+}
+.brand-icon{
+  display:grid;
+  place-items:center;
+  background:var(--mint);
+  width:42px;
+  height:42px;
+  border-radius:14px;
+  font-size:23px
+}
+.navlinks{
+  display:flex;
+  align-items:center;
+  gap:24px
+}
+.navlinks a{
+  font-size:13px;
+  color:var(--muted);
+  text-decoration:none
+}
+.navlinks a:hover{
+  color:var(--green)
+}
+.nav-actions{
+  display:flex;
+  gap:10px
+}
+.btn{
+  border:1px solid transparent;
+  border-radius:10px;
+  padding:11px 17px;
+  font-weight:700;
+  font-size:13px;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  transition:.2s
+}
+.btn-primary{
+  background:var(--green);
+  color:white
+}
+.btn-primary:hover{
+  background:var(--deep);
+  transform:translateY(-1px)
+}
+.btn-outline{
+  border-color:#b9d4c5;
+  background:white;
+  color:var(--deep)
+}
+.btn-soft{
+  background:var(--mint);
+  color:var(--deep)
+}
+.btn-small{
+  padding:8px 12px
+}
+.hero{
+  padding:66px 0 48px;
+  background:radial-gradient(circle at 85% 30%,#e0f2e6 0,transparent 32%),linear-gradient(135deg,#fbfdf9,#eff8f0)
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  align-items:center;
+  gap:42px
+}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid #cce6d5;
+  background:#f4fbf5;
+  color:var(--green);
+  font-size:12px;
+  font-weight:800;
+  padding:8px 12px;
+  border-radius:30px
+}
+.hero h1{
+  font-size:clamp(34px,4.3vw,54px);
+  line-height:1.1;
+  letter-spacing:-1.8px;
+  margin:18px 0;
+  color:var(--deep)
+}
+.hero p{
+  font-size:16px;
+  line-height:1.8;
+  color:#5c7468;
+  max-width:530px
+}
+.hero-buttons{
+  display:flex;
+  gap:12px;
+  margin-top:26px;
+  flex-wrap:wrap
+}
+.hero-art{
+  min-height:340px;
+  border-radius:30px;
+  background:linear-gradient(145deg,#d8ebd9,#f9f5e8);
+  display:grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
+  border:1px solid #d5e7d8
+}
+.hero-art:before,.hero-art:after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  background:#ffffff55
+}
+.hero-art:before{
+  width:270px;
+  height:270px;
+  right:-35px;
+  top:-55px
+}
+.hero-art:after{
+  width:220px;
+  height:220px;
+  left:-70px;
+  bottom:-100px
+}
+.mosque{
+  font-size:125px;
+  z-index:1;
+  filter:drop-shadow(0 12px 10px #1a634522)
+}
+.book{
+  position:absolute;
+  z-index:2;
+  bottom:34px;
+  right:42px;
+  font-size:65px
+}
+.art-caption{
+  position:absolute;
+  left:24px;
+  bottom:24px;
+  background:#ffffffdf;
+  padding:13px 16px;
+  border-radius:14px;
+  font-size:12px;
+  font-weight:750;
+  z-index:3
+}
+.features{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  padding:0 0 60px
+}
+.feature{
+  background:white;
+  border:1px solid var(--line);
+  padding:22px;
+  border-radius:18px;
+  box-shadow:var(--shadow)
+}
+.feature-icon{
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  background:var(--mint);
+  font-size:21px
+}
+.feature h3{
+  font-size:14px;
+  margin:14px 0 7px
+}
+.feature p{
+  font-size:12px;
+  line-height:1.6;
+  color:var(--muted);
+  margin:0
+}
+.section{
+  padding:54px 0
+}
+.section-head{
+  text-align:center;
+  max-width:650px;
+  margin:0 auto 28px
+}
+.section-head h2{
+  font-size:30px;
+  color:var(--deep);
+  margin:0 0 10px
+}
+.section-head p{
+  color:var(--muted);
+  line-height:1.7
+}
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px
+}
+.step{
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:white
+}
+.step-number{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:var(--green);
+  color:white;
+  font-weight:800
+}
+.step h3{
+  font-size:14px;
+  margin:14px 0 6px
+}
+.step p{
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.6
+}
+footer{
+  padding:25px 0;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:12px;
+  background:white
+}
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap
+}
+.auth-bg{
+  min-height:calc(100vh - 76px);
+  padding:44px 20px;
+  display:grid;
+  place-items:center;
+  background:radial-gradient(circle at 15% 20%,#e0f1e3,transparent 30%),linear-gradient(140deg,#f8fbf7,#edf6ef)
+}
+.auth-card{
+  width:min(100%,490px);
+  padding:34px;
+  background:white;
+  border:1px solid var(--line);
+  border-radius:22px;
+  box-shadow:var(--shadow)
+}
+.auth-brand{
+  text-align:center;
+  margin-bottom:25px
+}
+.auth-brand .brand-icon{
+  margin:0 auto 10px
+}
+.auth-brand h2{
+  margin:0 0 8px;
+  color:var(--deep)
+}
+.auth-brand p{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6
+}
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px
+}
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+  margin-bottom:15px
+}
+.field.full{
+  grid-column:1/-1
+}
+.field label{
+  font-size:12px;
+  font-weight:750
+}
+.field input,.field select,.field textarea{
+  width:100%;
+  border:1px solid #d5e3da;
+  background:#fff;
+  border-radius:9px;
+  padding:12px;
+  color:var(--text);
+  outline:none
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:var(--green);
+  box-shadow:0 0 0 3px #087f5b16
+}
+.field small{
+  color:var(--muted);
+  font-size:11px
+}
+.form-note{
+  font-size:12px;
+  color:var(--muted);
+  text-align:center;
+  margin:16px 0 0
+}
+.text-link{
+  color:var(--green);
+  font-weight:750;
+  cursor:pointer;
+  text-decoration:none
+}
+.checkline{
+  display:flex;
+  gap:8px;
+  align-items:flex-start;
+  font-size:12px;
+  color:var(--muted);
+  margin:4px 0 18px
+}
+.checkline input{
+  margin-top:2px
+}
+.notice{
+  padding:12px 14px;
+  background:#fff7df;
+  border:1px solid #f1e2b2;
+  border-radius:10px;
+  color:#765b18;
+  font-size:12px;
+  line-height:1.6;
+  margin-bottom:16px
+}
+.app-shell{
+  display:grid;
+  grid-template-columns:235px minmax(0,1fr);
+  min-height:calc(100vh - 76px)
+}
+.sidebar{
+  background:white;
+  border-right:1px solid var(--line);
+  padding:22px 14px;
+  display:flex;
+  flex-direction:column
+}
+.side-brand{
+  padding:0 12px 24px
+}
+.side-label{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:#9aada2;
+  font-weight:800;
+  padding:12px
+}
+.side-link{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:12px;
+  border-radius:10px;
+  margin-bottom:4px;
+  color:#5b7467;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:650
+}
+.side-link.active,.side-link:hover{
+  background:var(--mint);
+  color:var(--deep)
+}
+.side-link .ico{
+  width:22px;
+  text-align:center
+}
+.side-bottom{
+  margin-top:auto
+}
+.app-main{
+  padding:30px;
+  min-width:0
+}
+.app-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  margin-bottom:26px
+}
+.app-top h1{
+  margin:0;
+  font-size:25px;
+  color:var(--deep)
+}
+.app-top p{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:13px
+}
+.user-pill{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:white;
+  border:1px solid var(--line);
+  padding:8px 12px;
+  border-radius:12px;
+  font-size:12px
+}
+.avatar{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:var(--mint);
+  font-size:17px
+}
+.card{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:21px;
+  box-shadow:0 5px 18px #194d3410
+}
+.card h3{
+  font-size:15px;
+  margin:0 0 8px
+}
+.muted{
+  color:var(--muted)
+}
+.small{
+  font-size:12px;
+  line-height:1.65
+}
+.welcome{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  background:linear-gradient(110deg,#e7f5eb,#fff);
+  border:1px solid #d2e8d8;
+  border-radius:18px;
+  padding:25px;
+  margin-bottom:20px
+}
+.welcome h2{
+  margin:6px 0 8px;
+  font-size:23px;
+  color:var(--deep)
+}
+.welcome p{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.65;
+  max-width:550px
+}
+.welcome-art{
+  font-size:64px;
+  padding:12px
+}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-bottom:20px
+}
+.stat{
+  display:flex;
+  gap:13px;
+  align-items:center
+}
+.stat-icon{
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  border-radius:13px;
+  background:var(--mint);
+  font-size:20px
+}
+.stat strong{
+  font-size:20px;
+  display:block
+}
+.stat span{
+  font-size:11px;
+  color:var(--muted)
+}
+.progress{
+  height:8px;
+  background:#e8f0eb;
+  border-radius:20px;
+  overflow:hidden;
+  margin:12px 0
+}
+.progress span{
+  display:block;
+  height:100%;
+  background:var(--green);
+  border-radius:20px
+}
+.stage-list{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px
+}
+.stage{
+  border:1px solid var(--line);
+  padding:16px;
+  border-radius:13px
+}
+.stage .n{
+  width:28px;
+  height:28px;
+  display:grid;
+  place-items:center;
+  background:#e9f3ec;
+  color:var(--green);
+  border-radius:50%;
+  font-weight:800;
+  font-size:12px
+}
+.stage h4{
+  font-size:13px;
+  margin:12px 0 5px
+}
+.stage p{
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.5;
+  min-height:33px
+}
+.stage .btn{
+  width:100%;
+  font-size:11px;
+  padding:9px 6px
+}
+.two-col{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:18px;
+  margin-top:18px
+}
+.list-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:13px 0;
+  border-bottom:1px solid #edf2ee;
+  font-size:12px
+}
+.list-row:last-child{
+  border-bottom:0
+}
+.badge{
+  display:inline-flex;
+  padding:5px 9px;
+  border-radius:30px;
+  font-size:10px;
+  font-weight:800;
+  background:#edf4ef;
+  color:#557465
+}
+.badge.success{
+  background:#e0f5e7;
+  color:#087443
+}
+.badge.pending{
+  background:#fff3d6;
+  color:#926a10
+}
+.page-card{
+  max-width:900px;
+  margin:0 auto
+}
+.page-title{
+  margin-bottom:22px
+}
+.page-title h2{
+  font-size:22px;
+  color:var(--deep);
+  margin:0 0 7px
+}
+.page-title p{
+  color:var(--muted);
+  font-size:13px;
+  margin:0;
+  line-height:1.6
+}
+.form-actions{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:22px
+}
+.score-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px
+}
+.score-field{
+  background:var(--pale);
+  border:1px solid var(--line);
+  padding:16px;
+  border-radius:13px
+}
+.score-field .field{
+  margin:0
+}
+.score-field label{
+  font-size:13px
+}
+.score-field input{
+  font-size:16px;
+  font-weight:750
+}
+.score-info{
+  display:flex;
+  justify-content:space-between;
+  font-size:11px;
+  color:var(--muted);
+  margin-bottom:8px
+}
+.result-banner{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  background:linear-gradient(110deg,#e1f5e7,#f6fbf6);
+  border:1px solid #cce7d4;
+  padding:24px;
+  border-radius:16px;
+  margin-bottom:18px
+}
+.result-symbol{
+  width:65px;
+  height:65px;
+  display:grid;
+  place-items:center;
+  background:white;
+  border-radius:18px;
+  font-size:32px
+}
+.result-banner h2{
+  font-size:27px;
+  color:var(--deep);
+  margin:4px 0
+}
+.result-banner p{
+  font-size:12px;
+  color:var(--muted);
+  margin:0;
+  line-height:1.6
+}
+.result-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px
+}
+.table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:12px
+}
+.table th,.table td{
+  text-align:left;
+  padding:12px 10px;
+  border-bottom:1px solid #eaf0ec
+}
+.table th{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.4px;
+  color:var(--muted);
+  background:#f7faf8
+}
+.chart{
+  height:205px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  gap:24px;
+  padding:18px 10px 0;
+  border-bottom:1px solid var(--line)
+}
+.bar-wrap{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-items:center;
+  gap:8px;
+  width:65px;
+  font-size:10px;
+  color:var(--muted)
+}
+.bar{
+  width:35px;
+  border-radius:8px 8px 0 0;
+  background:linear-gradient(#27a477,#087f5b);
+  min-height:8px
+}
+.bar.blue{
+  background:linear-gradient(#65a5ee,#3176c5)
+}
+.bar.gold{
+  background:linear-gradient(#f2ce75,#dba52c)
+}
+.empty{
+  text-align:center;
+  padding:45px 20px
+}
+.empty .big{
+  font-size:45px
+}
+.empty h3{
+  margin:10px 0
+}
+.empty p{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.7
+}
+.toast{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  background:var(--deep);
+  color:white;
+  padding:14px 18px;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+  font-size:13px;
+  z-index:100;
+  max-width:320px
+}
+.mobile-menu{
+  display:none
+}
+@media(max-width:900px){
+  .hero-grid{
+    grid-template-columns:1fr
+  }
+  .hero-art{
+    min-height:260px
+  }
+  .features,.steps{
+    grid-template-columns:repeat(2,1fr)
+  }
+  .app-shell{
+    grid-template-columns:1fr
+  }
+  .sidebar{
+    display:none
+  }
+  .sidebar.open{
+    display:flex;
+    position:fixed;
+    z-index:30;
+    top:76px;
+    bottom:0;
+    width:245px;
+    box-shadow:10px 0 30px #0001
+  }
+  .mobile-menu{
+    display:inline-flex
+  }
+  .app-main{
+    padding:22px
+  }
+  .stage-list{
+    grid-template-columns:repeat(2,1fr)
+  }
+}
+@media(max-width:600px){
+  .wrap{
+    padding:0 16px
+  }
+  .navlinks{
+    display:none
+  }
+  .brand{
+    font-size:17px
+  }
+  .hero{
+    padding:40px 0 30px
+  }
+  .hero h1{
+    font-size:36px
+  }
+  .features,.steps,.stats,.two-col,.score-grid,.result-grid{
+    grid-template-columns:1fr
+  }
+  .app-main{
+    padding:17px 13px
+  }
+  .app-top h1{
+    font-size:21px
+  }
+  .user-pill{
+    display:none
+  }
+  .welcome{
+    padding:18px
+  }
+  .welcome-art{
+    display:none
+  }
+  .stage-list{
+    grid-template-columns:1fr 1fr
+  }
+  .stage{
+    padding:12px
+  }
+  .form-grid{
+    grid-template-columns:1fr
+  }
+  .field.full{
+    grid-column:auto
+  }
+  .auth-card{
+    padding:24px 19px
+  }
+  .result-banner{
+    align-items:flex-start;
+    padding:17px
+  }
+  .result-banner h2{
+    font-size:23px
+  }
+  .form-actions{
+    flex-wrap:wrap
+  }
+  .form-actions .btn{
+    flex:1
+  }
+  .table{
+    font-size:10px
+  }
+  .table th,.table td{
+    padding:9px 5px
+  }
+}
+</style>
+</head>
+<body>
+<header id="publicHeader">
+  <div class="wrap nav">
+    <a class="brand" href="#" onclick="showPublic('home');return false"><span class="brand-icon">📖</span>TahfizTahsin</a>
+    <nav class="navlinks"><a href="#" onclick="showPublic('home');return false">Beranda</a><a href="#tentang">Tentang</a><a href="#alur">Alur Seleksi</a><a href="#faq">FAQ</a></nav>
+    <div class="nav-actions"><button class="btn btn-outline" onclick="showPublic('login')">Masuk</button><button class="btn btn-primary" onclick="showPublic('register')">Daftar</button></div>
+  </div>
+</header>
+<main id="publicHome">
+  <section class="hero"><div class="wrap hero-grid">
+    <div><span class="eyebrow">✦ Sistem Seleksi Calon Siswa</span><h1>Temukan Program Tahfiz atau Tahsin yang Tepat untuk Anda</h1><p>Dapatkan rekomendasi program berdasarkan hasil tes kemampuan membaca dan hafalan Al-Qur’an. Sistem membantu proses pengelompokan secara lebih terstruktur menggunakan algoritma K-Means.</p><div class="hero-buttons"><button class="btn btn-primary" onclick="showPublic('register')">Daftar Sekarang <span>→</span></button><a class="btn btn-outline" href="#alur">Lihat Alur Seleksi</a></div></div>
+    <div class="hero-art"><div class="mosque">🕌</div><div class="book">📖</div><div class="art-caption">Belajar Al-Qur’an, bertumbuh bersama.</div></div>
+  </div></section>
+  <section class="wrap features" id="tentang">
+    <article class="feature"><div class="feature-icon">📝</div><h3>Seleksi Online</h3><p>Lengkapi data diri dan ikuti tahapan seleksi dengan mudah.</p></article>
+    <article class="feature"><div class="feature-icon">📊</div><h3>Penilaian Terstruktur</h3><p>Nilai kemampuan disimpan rapi untuk mendukung pengelompokan.</p></article>
+    <article class="feature"><div class="feature-icon">🌿</div><h3>Rekomendasi Program</h3><p>Lihat rekomendasi program berdasarkan karakteristik kelompok.</p></article>
+    <article class="feature"><div class="feature-icon">📄</div><h3>Riwayat Hasil</h3><p>Akses kembali ringkasan hasil seleksi yang pernah diikuti.</p></article>
+  </section>
+  <section class="section" id="alur"><div class="wrap"><div class="section-head"><h2>Alur Seleksi</h2><p>Ikuti tahapan berikut agar data dan hasil seleksi Anda tercatat dengan lengkap.</p></div><div class="steps">
+    <article class="step"><div class="step-number">1</div><h3>Buat Akun</h3><p>Daftar menggunakan nama, nomor peserta, email, dan kata sandi.</p></article>
+    <article class="step"><div class="step-number">2</div><h3>Lengkapi Data & Tes</h3><p>Isi data diri dan ikuti penilaian kemampuan oleh penguji.</p></article>
+    <article class="step"><div class="step-number">3</div><h3>Pengelompokan</h3><p>Data nilai diproses dengan algoritma K-Means oleh sistem.</p></article>
+    <article class="step"><div class="step-number">4</div><h3>Lihat Hasil</h3><p>Baca hasil rekomendasi dan informasi kelompok Anda.</p></article>
+  </div></div></section>
+  <section class="section" id="faq" style="background:#edf6ef"><div class="wrap"><div class="section-head"><h2>Pertanyaan Umum</h2><p>Informasi singkat tentang proses seleksi.</p></div><div style="max-width:760px;margin:auto;display:grid;gap:12px">
+    <div class="card"><h3>Apa itu Tahfiz dan Tahsin?</h3><p class="small muted">Tahfiz berfokus pada hafalan Al-Qur’an, sedangkan Tahsin berfokus pada perbaikan bacaan sesuai kaidah tajwid dan makharijul huruf.</p></div>
+    <div class="card"><h3>Apakah rekomendasi merupakan keputusan final?</h3><p class="small muted">Rekomendasi sistem membantu proses seleksi. Keputusan akhir sebaiknya tetap divalidasi oleh penguji atau pihak lembaga.</p></div>
+  </div></div></section>
+</main>
+<div id="authView" class="hidden"></div>
+<div id="appView" class="hidden"></div>
+<div id="toast" class="toast hidden"></div>
+<footer id="publicFooter"><div class="wrap footer-inner"><span>© 2026 TahfizTahsin · Sistem Seleksi Calon Siswa</span><span>Dibuat untuk mendukung proses belajar Al-Qur’an.</span></div></footer>
+<script>
+const $=s=>document.querySelector(s);
+const storeKey='tahfiztahsin_demo_v1';
+let state=JSON.parse(localStorage.getItem(storeKey)||'null')||{user:null,profile:{},scores:{},history:[],result:null,submitted:false};
+let activePage='dashboard';
+function save(){localStorage.setItem(storeKey,JSON.stringify(state))}
+function esc(v=''){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),2600)}
+function hideAll(){ $('#publicHome').classList.add('hidden');$('#authView').classList.add('hidden');$('#appView').classList.add('hidden');$('#publicFooter').classList.add('hidden');}
+function showPublic(page='login'){hideAll();$('#publicHeader').classList.add('hidden');$('#publicHome').classList.add('hidden');$('#publicFooter').classList.add('hidden');if(page==='home')page='login';$('#authView').classList.remove('hidden');$('#authView').innerHTML=authTemplate(page);window.scrollTo(0,0)}
+function authTemplate(page){let register=page==='register';return `<div class="auth-bg"><div class="auth-card"><div class="auth-brand"><div class="brand-icon">📖</div><h2>${register?'Buat Akun Baru':'Selamat Datang Kembali'}</h2><p>${register?'Daftar untuk mengikuti seleksi program Tahfiz dan Tahsin.':'Masuk untuk melihat tahapan dan hasil seleksi Anda.'}</p></div>
+${register?`<form id="registerForm"><div class="field"><label>Nama Lengkap</label><input name="name" required placeholder="Masukkan nama lengkap"></div><div class="field"><label>NIS / Nomor Peserta</label><input name="nis" required placeholder="Contoh: 2024001"></div><div class="field"><label>Email</label><input name="email" type="email" required placeholder="nama@email.com"></div><div class="field"><label>Kata Sandi</label><input name="password" type="password" minlength="6" required placeholder="Minimal 6 karakter"></div><label class="checkline"><input type="checkbox" required> Saya menyetujui syarat dan ketentuan yang berlaku.</label><button class="btn btn-primary" style="width:100%">Daftar Sekarang →</button></form><p class="form-note">Sudah punya akun? <a class="text-link" onclick="showPublic('login')">Masuk di sini</a></p>`:
+`<form id="loginForm"><div class="field"><label>Email</label><input name="email" type="email" required placeholder="nama@email.com"></div><div class="field"><label>Kata Sandi</label><input name="password" type="password" required placeholder="Masukkan kata sandi"></div><button class="btn btn-primary" style="width:100%">Masuk ke Akun →</button></form><p class="form-note">Belum punya akun? <a class="text-link" onclick="showPublic('register')">Daftar sekarang</a></p><div class="notice" style="margin-top:20px;margin-bottom:0">Demo: data akun disimpan di browser ini saja. Jangan gunakan kata sandi asli.</div>`}</div></div>`}
+document.addEventListener('submit',e=>{if(e.target.id==='registerForm'){e.preventDefault();const f=new FormData(e.target);state.user={name:f.get('name'),nis:f.get('nis'),email:f.get('email'),password:f.get('password')};state.profile={name:state.user.name,nis:state.user.nis,email:state.user.email};save();toast('Akun demo berhasil dibuat.');renderApp('dashboard')}
+if(e.target.id==='loginForm'){e.preventDefault();const f=new FormData(e.target);if(state.user&&f.get('email')===state.user.email&&f.get('password')===state.user.password){renderApp('dashboard')}else{toast('Akun tidak ditemukan. Daftar dahulu pada demo ini.')}}});
+function logout(){state.user=null;save();showPublic('login');toast('Anda telah keluar.')}
+function sidebar(){return `<aside class="sidebar" id="sidebar"><div class="side-brand"><a class="brand" href="#" onclick="renderApp('dashboard');return false"><span class="brand-icon">📖</span>TahfizTahsin</a></div><div class="side-label">Menu utama</div>${[['dashboard','⌂','Beranda'],['profile','▤','Data Diri'],['scores','✎','Hasil Tes'],['process','◌','Proses Pengelompokan'],['result','▣','Hasil Seleksi'],['history','◷','Riwayat Seleksi'],['account','♙','Profil Saya']].map(x=>`<a href="#" class="side-link ${activePage===x[0]?'active':''}" onclick="renderApp('${x[0]}');return false"><span class="ico">${x[1]}</span>${x[2]}</a>`).join('')}<div class="side-bottom"><a href="#" class="side-link" onclick="logout();return false"><span class="ico">↪</span>Keluar</a></div></aside>`}
+function shell(content){return `<div class="app-shell">${sidebar()}<section class="app-main"><div class="app-top"><div><button class="btn btn-outline mobile-menu" onclick="$('#sidebar').classList.toggle('open')">☰ Menu</button><h1>${({dashboard:'Dashboard',profile:'Data Diri',scores:'Hasil Tes Kemampuan',process:'Proses Pengelompokan',result:'Hasil Seleksi',history:'Riwayat Seleksi',account:'Profil Saya'})[activePage]}</h1><p>${({dashboard:'Pantau progres dan tahapan seleksi Anda.',profile:'Lengkapi identitas calon siswa dengan benar.',scores:'Lihat nilai tes kemampuan membaca dan hafalan.',process:'Status pemrosesan data menggunakan algoritma K-Means.',result:'Ringkasan rekomendasi berdasarkan hasil pengelompokan.',history:'Lihat hasil seleksi yang tersimpan.',account:'Informasi akun Anda.'})[activePage]}</p></div><div class="user-pill"><span class="avatar">👤</span><span><b>${esc(state.user?.name||'Calon Siswa')}</b><br><span class="muted">NIS: ${esc(state.user?.nis||'-')}</span></span></div></div>${content}</section></div>`}
+function dashboard(){let done=(state.profile.saved?1:0)+(state.submitted?1:0)+(state.result?1:0);return `<div class="welcome"><div><span class="eyebrow">✦ Portal Calon Siswa</span><h2>Assalamu’alaikum, ${esc(state.user?.name?.split(' ')[0]||'Calon Siswa')}!</h2><p>Lengkapi data dan ikuti tahapan seleksi untuk melihat rekomendasi program Tahfiz atau Tahsin sesuai hasil penilaian.</p><button class="btn btn-primary" onclick="renderApp('${state.profile.saved?(state.submitted?'result':'scores'):'profile'}')">Lanjutkan Seleksi →</button></div><div class="welcome-art">📖</div></div>
+<div class="stats"><div class="card stat"><div class="stat-icon">🧾</div><div><strong>${state.profile.saved?'Lengkap':'Belum'}</strong><span>Data diri</span></div></div><div class="card stat"><div class="stat-icon">✍️</div><div><strong>${state.submitted?'Selesai':'Belum'}</strong><span>Hasil tes</span></div></div><div class="card stat"><div class="stat-icon">🌱</div><div><strong>${state.result?'Tersedia':'Menunggu'}</strong><span>Hasil seleksi</span></div></div></div>
+<div class="card"><div style="display:flex;justify-content:space-between;gap:12px;align-items:center"><div><h3>Progres Seleksi</h3><p class="small muted">Selesaikan setiap tahap secara berurutan.</p></div><b style="color:var(--green)">${done}/3 tahap</b></div><div class="progress"><span style="width:${done/3*100}%"></span></div><div class="stage-list">
+${[['Data Diri','Lengkapi identitas calon siswa.',state.profile.saved,'profile','Isi Data'],['Hasil Tes','Periksa nilai kemampuan.',state.submitted,'scores','Lihat Tes'],['Pengelompokan','Data akan diproses oleh sistem.',!!state.result,'process','Lihat Proses'],['Hasil Seleksi','Lihat rekomendasi program.',!!state.result,'result','Lihat Hasil']].map((s,i)=>`<div class="stage"><div class="n">${s[2]?'✓':i+1}</div><h4>${s[0]}</h4><p>${s[1]}</p><button class="btn ${s[2]?'btn-soft':'btn-outline'}" onclick="renderApp('${s[3]}')">${s[4]}</button></div>`).join('')}</div></div>
+<div class="two-col"><div class="card"><h3>Aktivitas Terbaru</h3><div class="list-row"><span>Registrasi akun</span><span class="badge success">Selesai</span></div><div class="list-row"><span>Pengisian data diri</span><span class="badge ${state.profile.saved?'success':'pending'}">${state.profile.saved?'Selesai':'Belum'}</span></div><div class="list-row"><span>Penilaian kemampuan</span><span class="badge ${state.submitted?'success':'pending'}">${state.submitted?'Selesai':'Menunggu'}</span></div></div><div class="card"><h3>Informasi Seleksi</h3><p class="small muted">Pastikan informasi yang Anda berikan benar. Nilai tes resmi sebaiknya dimasukkan atau diverifikasi oleh penguji.</p><div class="notice" style="margin:14px 0 0">Hasil rekomendasi pada demo ini hanya ilustrasi, bukan keputusan penerimaan resmi.</div></div></div>`}
+function profilePage(){let p=state.profile;return `<div class="card page-card"><div class="page-title"><h2>Informasi Calon Siswa</h2><p>Masukkan identitas yang diperlukan untuk mengikuti seleksi.</p></div><form id="profileForm"><div class="form-grid">
+${field('Nama Lengkap','name',p.name||state.user?.name,'text',true)}${field('NIS / Nomor Peserta','nis',p.nis||state.user?.nis,'text',true)}${field('Tanggal Lahir','birth',p.birth,'date')}${selectField('Jenis Kelamin','gender',p.gender,[['','Pilih jenis kelamin'],['Laki-laki','Laki-laki'],['Perempuan','Perempuan']])}${field('Asal Sekolah','school',p.school,'text')}${field('Nomor HP','phone',p.phone,'tel')}${field('Email','email',p.email||state.user?.email,'email')}${field('Nama Orang Tua / Wali','guardian',p.guardian,'text')}${field('Alamat','address',p.address,'text',false,true)}
+</div><div class="form-actions"><button type="button" class="btn btn-outline" onclick="renderApp('dashboard')">← Kembali</button><button class="btn btn-primary">Simpan dan Lanjut →</button></div></form></div>`}
+function field(label,name,value='',type='text',required=false,full=false){return `<div class="field ${full?'full':''}"><label>${label}${required?' *':''}</label><input name="${name}" type="${type}" value="${esc(value||'')}" ${required?'required':''} placeholder="${type==='date'?'Pilih tanggal':`Masukkan ${label.toLowerCase()}`}"></div>`}
+function selectField(label,name,value,options){return `<div class="field"><label>${label}</label><select name="${name}">${options.map(o=>`<option value="${esc(o[0])}" ${value===o[0]?'selected':''}>${o[1]}</option>`).join('')}</select></div>`}
+function scoresPage(){let labels=[['reading','Kelancaran Membaca'],['tajwid','Tajwid'],['makhraj','Makharijul Huruf'],['hafalan','Hafalan Al-Qur’an'],['understanding','Pemahaman Bacaan']];return `<div class="card page-card"><div class="notice">Untuk demonstrasi, Anda dapat mengisi nilai contoh. Pada sistem nyata, nilai resmi sebaiknya dimasukkan atau dikonfirmasi oleh penguji.</div><form id="scoresForm"><div class="score-grid">${labels.map(([k,l])=>`<div class="score-field"><div class="score-info"><label for="${k}">${l}</label><span>0–100</span></div><div class="field"><input id="${k}" name="${k}" type="number" min="0" max="100" required value="${state.scores[k]??''}" placeholder="Masukkan nilai"><small>Masukkan nilai tes ${l.toLowerCase()}.</small></div></div>`).join('')}</div><div class="field" style="margin-top:18px"><label>Catatan penguji (opsional)</label><textarea name="notes" rows="3" placeholder="Catatan tambahan...">${esc(state.scores.notes||'')}</textarea></div><div class="form-actions"><button type="button" class="btn btn-outline" onclick="renderApp('dashboard')">← Kembali</button><button class="btn btn-primary">Simpan Nilai →</button></div></form></div>`}
+function processPage(){return `<div class="card page-card"><div class="empty"><div class="big">📊</div><h3>${state.result?'Pengelompokan Selesai':'Siap Memproses Data'}</h3><p>${state.result?'Data contoh telah menghasilkan rekomendasi demo.':'Pastikan data diri dan nilai tes telah diisi. Klik tombol di bawah untuk melihat simulasi hasil.'}<br>Dalam aplikasi nyata, proses K-Means dilakukan di backend menggunakan data seluruh calon siswa.</p><div style="max-width:400px;margin:20px auto"><div class="progress"><span style="width:${state.result?100:(state.submitted?55:20)}%"></span></div></div><button class="btn btn-primary" onclick="runDemoClustering()" ${!state.submitted?'disabled style="opacity:.5;cursor:not-allowed"':''}>${state.result?'Perbarui Simulasi Hasil':'Jalankan Simulasi K-Means'} →</button><p class="small" style="margin-top:18px">Demo ini tidak menjalankan algoritma K-Means sungguhan dan tidak menetapkan hasil penerimaan resmi.</p></div></div>`}
+function resultPage(){if(!state.result)return `<div class="card empty"><div class="big">📄</div><h3>Hasil Belum Tersedia</h3><p>Lengkapi data diri, simpan nilai tes, lalu jalankan proses pengelompokan untuk melihat hasil demo.</p><button class="btn btn-primary" onclick="renderApp(state.submitted?'process':'scores')">Lanjutkan Seleksi →</button></div>`;
+let r=state.result;return `<div class="result-banner"><div class="result-symbol">📖</div><div style="flex:1"><span class="badge success">Rekomendasi demo · Cluster ${r.cluster}</span><h2>${r.program}</h2><p>${r.description}</p></div></div><div class="result-grid"><div class="card"><h3>Ringkasan Nilai Anda</h3><table class="table"><thead><tr><th>Kriteria</th><th>Nilai</th></tr></thead><tbody>${[['Kelancaran Membaca','reading'],['Tajwid','tajwid'],['Makharijul Huruf','makhraj'],['Hafalan','hafalan'],['Pemahaman','understanding']].map(([l,k])=>`<tr><td>${l}</td><td><b>${Number(state.scores[k]||0)}</b>/100</td></tr>`).join('')}</tbody></table><button class="btn btn-outline btn-small" style="margin-top:15px" onclick="window.print()">▣ Cetak / Simpan PDF</button></div><div class="card"><h3>Visualisasi Nilai</h3><p class="small muted">Nilai tes pada setiap kriteria.</p><div class="chart">${[['Baca','reading',''],['Tajwid','tajwid','blue'],['Huruf','makhraj',''],['Hafalan','hafalan','blue'],['Paham','understanding','']].map(([l,k,c])=>`<div class="bar-wrap"><b>${Number(state.scores[k]||0)}</b><div class="bar ${c}" style="height:${Math.max(4,Number(state.scores[k]||0))}%"></div><span>${l}</span></div>`).join('')}</div></div></div><div class="card" style="margin-top:18px"><h3>Memahami Hasil</h3><p class="small muted">K-Means mengelompokkan data berdasarkan kemiripan nilai, bukan langsung memutuskan kelulusan. Label ${r.program} di sini adalah contoh interpretasi cluster dan wajib divalidasi oleh lembaga berdasarkan standar seleksi.</p><div class="form-actions"><button class="btn btn-outline" onclick="renderApp('history')">Lihat Riwayat</button><button class="btn btn-primary" onclick="renderApp('dashboard')">Kembali ke Dashboard</button></div></div>`}
+function historyPage(){return `<div class="card">${state.history.length?`<table class="table"><thead><tr><th>Tanggal</th><th>Cluster</th><th>Rekomendasi</th><th>Status</th></tr></thead><tbody>${state.history.map(h=>`<tr><td>${esc(h.date)}</td><td>Cluster ${h.cluster}</td><td>${esc(h.program)}</td><td><span class="badge success">Tersimpan</span></td></tr>`).join('')}</tbody></table>`:`<div class="empty"><div class="big">🗂️</div><h3>Belum Ada Riwayat</h3><p>Riwayat akan muncul setelah Anda menyelesaikan simulasi pengelompokan.</p><button class="btn btn-primary" onclick="renderApp('scores')">Mulai Seleksi →</button></div>`}</div>`}
+function accountPage(){return `<div class="card page-card"><h3>Informasi Akun</h3><div class="list-row"><span>Nama</span><b>${esc(state.user?.name)}</b></div><div class="list-row"><span>NIS / Nomor Peserta</span><b>${esc(state.user?.nis)}</b></div><div class="list-row"><span>Email</span><b>${esc(state.user?.email)}</b></div><div class="form-actions"><button class="btn btn-outline" onclick="renderApp('profile')">Edit Data Diri</button><button class="btn btn-primary" onclick="logout()">Keluar</button></div></div>`}
+document.addEventListener('submit',e=>{if(e.target.id==='profileForm'){e.preventDefault();let f=new FormData(e.target);for(let [k,v] of f.entries())state.profile[k]=v;state.profile.saved=true;save();toast('Data diri berhasil disimpan.');renderApp('dashboard')}
+if(e.target.id==='scoresForm'){e.preventDefault();let f=new FormData(e.target);for(let k of ['reading','tajwid','makhraj','hafalan','understanding'])state.scores[k]=Number(f.get(k));state.scores.notes=f.get('notes');state.submitted=true;state.result=null;save();toast('Nilai tes berhasil disimpan.');renderApp('dashboard')}});
+function runDemoClustering(){if(!state.profile.saved){toast('Lengkapi data diri dahulu.');renderApp('profile');return}if(!state.submitted){toast('Simpan hasil tes dahulu.');renderApp('scores');return}
+let s=state.scores;let read=(s.reading+s.tajwid+s.makhraj)/3;let haf=(s.hafalan+s.understanding)/2;let program,cluster,description;
+if(read>=haf+8){program='Tahsin';cluster=2;description='Pada simulasi ini, kemampuan membaca relatif lebih menonjol. Interpretasi ini perlu divalidasi penguji.'}
+else if(haf>=read+8){program='Tahfiz';cluster=1;description='Pada simulasi ini, nilai hafalan dan pemahaman relatif lebih menonjol. Interpretasi ini perlu divalidasi penguji.'}
+else{program='Pembinaan / Evaluasi Lanjutan';cluster=3;description='Pada simulasi ini, profil nilai belum menunjukkan perbedaan yang kuat. Penguji perlu menilai kebutuhan pembinaan.'}
+state.result={program,cluster,description,date:new Date().toLocaleDateString('id-ID')};state.history.unshift({...state.result});save();renderApp('result');toast('Simulasi selesai. Hasil bukan keputusan resmi.')}
+function renderApp(page){if(!state.user){showPublic('login');return}activePage=page;hideAll();$('#publicHeader').classList.add('hidden');$('#appView').classList.remove('hidden');$('#appView').innerHTML=shell(({dashboard:dashboard,profile:profilePage,scores:scoresPage,process:processPage,result:resultPage,history:historyPage,account:accountPage})[page]());window.scrollTo(0,0)}
+if(state.user)renderApp('dashboard');else showPublic('login');
+</script>
+</body>
+</html>
