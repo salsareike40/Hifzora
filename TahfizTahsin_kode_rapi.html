@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TahfizTahsin | Seleksi Calon Siswa</title>
+<title>Hifzora | Seleksi Calon Siswa</title>
 <style>
 :root{
   --green:#087f5b;
@@ -927,7 +927,7 @@ footer{
 <body>
 <header id="publicHeader">
   <div class="wrap nav">
-    <a class="brand" href="#" onclick="showPublic('home');return false"><span class="brand-icon">📖</span>TahfizTahsin</a>
+    <a class="brand" href="#" onclick="showPublic('home');return false"><span class="brand-icon">📖</span>Hifzora</a>
     <nav class="navlinks"><a href="#" onclick="showPublic('home');return false">Beranda</a><a href="#tentang">Tentang</a><a href="#alur">Alur Seleksi</a><a href="#faq">FAQ</a></nav>
     <div class="nav-actions"><button class="btn btn-outline" onclick="showPublic('login')">Masuk</button><button class="btn btn-primary" onclick="showPublic('register')">Daftar</button></div>
   </div>
@@ -957,10 +957,10 @@ footer{
 <div id="authView" class="hidden"></div>
 <div id="appView" class="hidden"></div>
 <div id="toast" class="toast hidden"></div>
-<footer id="publicFooter"><div class="wrap footer-inner"><span>© 2026 TahfizTahsin · Sistem Seleksi Calon Siswa</span><span>Dibuat untuk mendukung proses belajar Al-Qur’an.</span></div></footer>
+<footer id="publicFooter"><div class="wrap footer-inner"><span>© 2026 Hifzora · Sistem Seleksi Calon Siswa</span><span>Dibuat untuk mendukung proses belajar Al-Qur’an.</span></div></footer>
 <script>
 const $=s=>document.querySelector(s);
-const storeKey='tahfiztahsin_demo_v1';
+const storeKey='Hifzora_demo_v1';
 let state=JSON.parse(localStorage.getItem(storeKey)||'null')||{user:null,profile:{},scores:{},history:[],result:null,submitted:false};
 let activePage='dashboard';
 function save(){localStorage.setItem(storeKey,JSON.stringify(state))}
@@ -974,7 +974,7 @@ ${register?`<form id="registerForm"><div class="field"><label>Nama Lengkap</labe
 document.addEventListener('submit',e=>{if(e.target.id==='registerForm'){e.preventDefault();const f=new FormData(e.target);state.user={name:f.get('name'),nis:f.get('nis'),email:f.get('email'),password:f.get('password')};state.profile={name:state.user.name,nis:state.user.nis,email:state.user.email};save();toast('Akun demo berhasil dibuat.');renderApp('dashboard')}
 if(e.target.id==='loginForm'){e.preventDefault();const f=new FormData(e.target);if(state.user&&f.get('email')===state.user.email&&f.get('password')===state.user.password){renderApp('dashboard')}else{toast('Akun tidak ditemukan. Daftar dahulu pada demo ini.')}}});
 function logout(){state.user=null;save();showPublic('login');toast('Anda telah keluar.')}
-function sidebar(){return `<aside class="sidebar" id="sidebar"><div class="side-brand"><a class="brand" href="#" onclick="renderApp('dashboard');return false"><span class="brand-icon">📖</span>TahfizTahsin</a></div><div class="side-label">Menu utama</div>${[['dashboard','⌂','Beranda'],['profile','▤','Data Diri'],['scores','✎','Hasil Tes'],['process','◌','Proses Pengelompokan'],['result','▣','Hasil Seleksi'],['history','◷','Riwayat Seleksi'],['account','♙','Profil Saya']].map(x=>`<a href="#" class="side-link ${activePage===x[0]?'active':''}" onclick="renderApp('${x[0]}');return false"><span class="ico">${x[1]}</span>${x[2]}</a>`).join('')}<div class="side-bottom"><a href="#" class="side-link" onclick="logout();return false"><span class="ico">↪</span>Keluar</a></div></aside>`}
+function sidebar(){return `<aside class="sidebar" id="sidebar"><div class="side-brand"><a class="brand" href="#" onclick="renderApp('dashboard');return false"><span class="brand-icon">📖</span>Hifzora</a></div><div class="side-label">Menu utama</div>${[['dashboard','⌂','Beranda'],['profile','▤','Data Diri'],['scores','✎','Hasil Tes'],['process','◌','Proses Pengelompokan'],['result','▣','Hasil Seleksi'],['history','◷','Riwayat Seleksi'],['account','♙','Profil Saya']].map(x=>`<a href="#" class="side-link ${activePage===x[0]?'active':''}" onclick="renderApp('${x[0]}');return false"><span class="ico">${x[1]}</span>${x[2]}</a>`).join('')}<div class="side-bottom"><a href="#" class="side-link" onclick="logout();return false"><span class="ico">↪</span>Keluar</a></div></aside>`}
 function shell(content){return `<div class="app-shell">${sidebar()}<section class="app-main"><div class="app-top"><div><button class="btn btn-outline mobile-menu" onclick="$('#sidebar').classList.toggle('open')">☰ Menu</button><h1>${({dashboard:'Dashboard',profile:'Data Diri',scores:'Hasil Tes Kemampuan',process:'Proses Pengelompokan',result:'Hasil Seleksi',history:'Riwayat Seleksi',account:'Profil Saya'})[activePage]}</h1><p>${({dashboard:'Pantau progres dan tahapan seleksi Anda.',profile:'Lengkapi identitas calon siswa dengan benar.',scores:'Lihat nilai tes kemampuan membaca dan hafalan.',process:'Status pemrosesan data menggunakan algoritma K-Means.',result:'Ringkasan rekomendasi berdasarkan hasil pengelompokan.',history:'Lihat hasil seleksi yang tersimpan.',account:'Informasi akun Anda.'})[activePage]}</p></div><div class="user-pill"><span class="avatar">👤</span><span><b>${esc(state.user?.name||'Calon Siswa')}</b><br><span class="muted">NIS: ${esc(state.user?.nis||'-')}</span></span></div></div>${content}</section></div>`}
 function dashboard(){let done=(state.profile.saved?1:0)+(state.submitted?1:0)+(state.result?1:0);return `<div class="welcome"><div><span class="eyebrow">✦ Portal Calon Siswa</span><h2>Assalamu’alaikum, ${esc(state.user?.name?.split(' ')[0]||'Calon Siswa')}!</h2><p>Lengkapi data dan ikuti tahapan seleksi untuk melihat rekomendasi program Tahfiz atau Tahsin sesuai hasil penilaian.</p><button class="btn btn-primary" onclick="renderApp('${state.profile.saved?(state.submitted?'result':'scores'):'profile'}')">Lanjutkan Seleksi →</button></div><div class="welcome-art">📖</div></div>
 <div class="stats"><div class="card stat"><div class="stat-icon">🧾</div><div><strong>${state.profile.saved?'Lengkap':'Belum'}</strong><span>Data diri</span></div></div><div class="card stat"><div class="stat-icon">✍️</div><div><strong>${state.submitted?'Selesai':'Belum'}</strong><span>Hasil tes</span></div></div><div class="card stat"><div class="stat-icon">🌱</div><div><strong>${state.result?'Tersedia':'Menunggu'}</strong><span>Hasil seleksi</span></div></div></div>
